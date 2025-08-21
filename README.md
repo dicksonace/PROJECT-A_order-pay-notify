@@ -1,6 +1,5 @@
-# Payment System Admin Dashboard
+# PROJECT A - ORDER-PAY-NOTIFY
 
-This is a complete payment system with a React admin dashboard and Laravel backend API.
 
 ## Project Structure
 
@@ -50,36 +49,14 @@ This is a complete payment system with a React admin dashboard and Laravel backe
    cd backend_api
    ```
 
-2. Install PHP dependencies:
+2. build the project :
    ```bash
-   composer install
+   docker compose up --build
    ```
 
-3. Copy environment file:
+3. And open another terminal and navigate to the backend_api:
    ```bash
-   cp .env.example .env
-   ```
-
-4. Generate application key:
-   ```bash
-   php artisan key:generate
-   ```
-
-5. Configure your database in `.env` file
-
-6. Run migrations:
-   ```bash
-   php artisan migrate
-   ```
-
-7. Seed the database (optional):
-   ```bash
-   php artisan db:seed
-   ```
-
-8. Start the Laravel development server:
-   ```bash
-   php artisan serve
+   docker compose exec app php artisan queue:work --queue=messages --tries=3
    ```
 
 The backend will be available at `http://localhost:8000`
@@ -127,59 +104,8 @@ The system includes a simulated rate limiting feature:
 - Visual indicator shows remaining requests
 - Reset button to simulate time-based reset
 
-## CORS Configuration
 
 The backend is configured to allow requests from:
 - `http://localhost:5173` (Vite dev server)
 - `http://localhost:3000` (Alternative React dev server)
 
-## Environment Variables
-
-### Backend (.env)
-```
-APP_NAME="Payment System"
-APP_ENV=local
-APP_KEY=your-app-key
-APP_DEBUG=true
-APP_URL=http://localhost:8000
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=payment_system
-DB_USERNAME=root
-DB_PASSWORD=
-
-WEBHOOK_SECRET=your-webhook-secret
-```
-
-## Troubleshooting
-
-### CORS Issues
-If you encounter CORS errors:
-1. Ensure the backend is running on port 8000
-2. Check that the frontend is running on port 5173
-3. Verify the CORS configuration in `backend_api/config/cors.php`
-
-### Database Issues
-1. Make sure your database is running
-2. Check your `.env` configuration
-3. Run `php artisan migrate:fresh` to reset the database
-
-### API Connection Issues
-1. Verify the backend is running: `http://localhost:8000`
-2. Check the API base URL in `admin-ui/src/services/api.js`
-3. Ensure all required endpoints are available
-
-## Development
-
-### Adding New Features
-1. **Backend**: Add new routes in `routes/api.php` and controllers in `app/Http/Controllers/`
-2. **Frontend**: Add new API methods in `src/services/api.js` and update the UI components
-
-### Styling
-The frontend uses Tailwind CSS for styling. All components are responsive and follow modern design patterns.
-
-## License
-
-This project is open source and available under the MIT License.
