@@ -1,7 +1,21 @@
 # PROJECT A - ORDER-PAY-NOTIFY
 
+## Setup Instructions
+
+### Backend Setup
+
+3. run this:
+   ```bash
+   docker compose up --build
+   ```
+
+The backend will be available at `http://localhost:8000`
+The frontend will be available at `http://localhost:5173`
+
+
 
 ## Project Structure
+
 
 - `admin-ui/` - React frontend application
 - `backend_api/` - Laravel backend API
@@ -24,6 +38,9 @@
 - **Responsive Design**: Modern, mobile-friendly UI
 
 ## API Endpoints
+The backend is configured to allow requests from:
+- `http://localhost:5173` (Vite dev server)
+- `http://localhost:3000` (Alternative React dev server)
 
 ### Orders
 - `GET /api/orders` - List all orders (paginated)
@@ -40,45 +57,9 @@
 ### Dashboard
 - `GET /api/dashboard/metrics` - Get dashboard statistics
 
-## Setup Instructions
 
-### Backend Setup
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend_api
-   ```
 
-2. build the project :
-   ```bash
-   docker compose up --build
-   ```
-
-3. And open another terminal and navigate to the backend_api:
-   ```bash
-   docker compose exec app php artisan queue:work --queue=messages --tries=3
-   ```
-
-The backend will be available at `http://localhost:8000`
-
-### Frontend Setup
-
-1. Navigate to the admin UI directory:
-   ```bash
-   cd admin-ui
-   ```
-
-2. Install Node.js dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-The frontend will be available at `http://localhost:5173`
 
 ## Usage
 
@@ -105,7 +86,5 @@ The system includes a simulated rate limiting feature:
 - Reset button to simulate time-based reset
 
 
-The backend is configured to allow requests from:
-- `http://localhost:5173` (Vite dev server)
-- `http://localhost:3000` (Alternative React dev server)
+
 
