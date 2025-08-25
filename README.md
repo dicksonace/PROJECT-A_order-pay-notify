@@ -2,25 +2,25 @@
 
 ## Setup Instructions
 
-### Backend Setup
+### project Setup
 
 3. run this:
    ```bash
    docker compose up --build
    ```
 
-The backend will be available at `http://localhost:8000`
-The frontend will be available at `http://localhost:5173`
+- The backend will be available at `http://localhost:8000`
+- The frontend will be available at `http://localhost:5173`
 
 
 
 ## Project Structure
 
-
 - `admin-ui/` - React frontend application
 - `backend_api/` - Laravel backend API
+  
 
-## Features
+## steps
 
 ### Backend API (Laravel)
 - **Orders Management**: Create and view orders
