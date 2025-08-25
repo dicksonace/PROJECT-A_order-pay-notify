@@ -42,6 +42,7 @@ The backend is configured to allow requests from:
 
 ### orders
 - `POST /api/orders` - Create new order
+  
   ### Example Request Body
 
 ```json
@@ -55,24 +56,49 @@ The backend is configured to allow requests from:
 ```
 
 
-
-### Orders
-- `GET /api/orders` - List all orders (paginated)
-- `GET /api/orders/{id}` - Get specific order
-- `POST /api/orders` - Create new order
-
 ### Payments
-- `GET /api/payments` - List all payments (paginated)
 - `POST /api/payments/charge` - Charge a payment (requires Idempotency-Key)
 
-### Products
-- `GET /api/products` - List all products (paginated)
+-   ### Example Request header
 
-### Dashboard
-- `GET /api/dashboard/metrics` - Get dashboard statistics
+      ```json
+     header{
+        Idempotency-Key: charge:3
+      }
+      
+      ```
+
+  # the number attached to charge:3 is the id of the order
 
 
 
+
+### Webhook
+- `POST /api/webhooks/momo` - Process payment
+
+-    ### Example Request header
+
+      ```json
+     header{
+        X-Signature: 7135a0d7ff10f393a00ca213b62719a0990722f892f89a09669e3ee14dd29e92,
+      }
+      
+      ```
+
+
+    ### Example Request Body
+
+```json
+{
+        "order_id": 3,
+        "amount": "142050.00",
+        "status": "initiated",
+        "idempotency_key": "charge:3",
+        "id": 1
+    }
+```
+
+# will get this playload after processing the payment 
 
 
 
