@@ -61,12 +61,12 @@ The backend is configured to allow requests from:
 
 -   ### Example Request header
 
-      ```json
+   ```json
      header{
         Idempotency-Key: charge:3
       }
       
-      ```
+   ```
 
   # the number attached to charge:3 is the id of the order
 
