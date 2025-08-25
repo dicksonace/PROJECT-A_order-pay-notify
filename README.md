@@ -61,7 +61,7 @@ The backend is configured to allow requests from:
 
 -   ### Example Request header
 
-  ```http
+  ```text
     Idempotency-Key: charge:3
       
    ```
@@ -76,7 +76,7 @@ The backend is configured to allow requests from:
 
 -    ### Example Request header
 
-      ```json
+      ```text
      header{
         X-Signature: 7135a0d7ff10f393a00ca213b62719a0990722f892f89a09669e3ee14dd29e92,
       }
