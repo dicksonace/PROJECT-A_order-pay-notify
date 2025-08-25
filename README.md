@@ -66,7 +66,7 @@ The backend is configured to allow requests from:
       
    ```
 
-  # the number attached to charge:3 is the id of the order
+  ### the number attached to charge:3 is the id of the order
 
 
 
@@ -96,7 +96,7 @@ The backend is configured to allow requests from:
     }
 ```
 
-# will get this playload after processing the payment 
+### will get this playload after processing the payment 
 
 
 
