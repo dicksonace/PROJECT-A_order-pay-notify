@@ -62,9 +62,12 @@ The backend is configured to allow requests from:
 -   ### Example Request header
 
    ```json
+    {
      header{
         Idempotency-Key: charge:3
       }
+ 
+   }
       
    ```
 
